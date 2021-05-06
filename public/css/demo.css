@@ -1,0 +1,47 @@
+body {
+  color: #d8d8d8;
+  background-color: #222;
+}
+
+a, a:visited {
+  color: #2f8de6;
+  text-decoration: none;
+}
+a:hover {
+  color: #e6882f;
+}
+
+input, textarea {
+  background-color: #6c6c6c;
+  border: none;
+}
+input:focus, textarea:focus {
+  outline: none;
+  background-color: #888;
+}
+
+.main-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  width: 100%;
+  color: #0f73dd;
+  font-family: Tangerine;
+  font-size: 14vw;
+  text-align: center;
+}
+
+.sub-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 60%);
+  width: 100%;
+  font-family: "Cinzel Decorative";
+  font-size: 3vw;
+  text-align: center;
+}
+.sub-message, .sub-message a {
+  color: #0c4a8d;
+}
