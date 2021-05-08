@@ -45,7 +45,8 @@ if (isset($maintainer))
                     subMsg.classList.add('modern');
                     mainMsg.classList.remove('elvish');
                     subMsg.classList.remove('elvish');
-                    fontMode = toggle.innerHTML = 'Modern';
+                    toggle.innerHTML = 'Elvish';
+                    fontMode = 'Modern';
                     break;
 
                 case 'Modern':
@@ -53,7 +54,8 @@ if (isset($maintainer))
                     subMsg.classList.add('elvish');
                     mainMsg.classList.remove('modern');
                     subMsg.classList.remove('modern');
-                    fontMode = toggle.innerHTML = 'Elvish';
+                    toggle.innerHTML = 'Modern';
+                    fontMode = 'Elvish';
                     break;
             }
         }
