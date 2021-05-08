@@ -1,15 +1,11 @@
 <?php
 
-return [
-    'App'       => 'app',
-    'Bootstrap' => 'bootstrap',
-    'Configs'   => 'configs',
-    'Libraries' => 'libraries',
-    'Public'    => 'public',
-    'Resources' => 'resources',
-    'Routes'    => 'routes',
-    'Storage'   => 'storage',
-    'Tools'     => 'tools',
-    'Vendor'    => 'vendor',
-    'View'      => 'view'
-];
+return array (
+  'App\\Classes\\Demo\\Demo' => 'app/Classes/Demo/Demo.php',
+  'App\\Controllers\\Controller' => 'app/Controllers/Controller.php',
+  'App\\Controllers\\Demo\\DemoController' => 'app/Controllers/Demo/DemoController.php',
+  'Libraries\\Curl' => 'libraries/Curl.php',
+  'Libraries\\Logger' => 'libraries/Logger.php',
+  'Libraries\\Prototype\\Singleton' => 'libraries/Prototype/Singleton.php',
+  'Libraries\\Router' => 'libraries/Router.php',
+);

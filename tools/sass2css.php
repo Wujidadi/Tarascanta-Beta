@@ -2,10 +2,10 @@
 
 /*
 |--------------------------------------------------------------------------
-| SASS to CSS
+| SASS/SCSS to CSS
 |--------------------------------------------------------------------------
 |
-| Convert SASS to CSS according to the sassmap file.
+| Convert SASS/SCSS to CSS according to the sassmap file (sassmap.json).
 | It is required to install SASS in your OS first. 
 |
 */
