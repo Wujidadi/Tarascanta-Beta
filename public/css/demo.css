@@ -29,27 +29,56 @@ input:focus, textarea:focus {
 }
 
 .main-message {
+  width: 100%;
+  color: #0f73dd;
+  text-align: center;
+}
+.main-message.modern {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  font-family: "Tangerine";
+  font-size: 14vw;
+}
+.main-message.elvish {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
-  width: 100%;
-  color: #0f73dd;
   font-family: "Half-Elven";
   font-size: 6.6666667vw;
-  text-align: center;
 }
 
 .sub-message {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 10%);
   width: 100%;
-  font-family: "Hobbiton Brush hand";
-  font-size: 3vw;
   text-align: center;
 }
 .sub-message, .sub-message a {
   color: #0c4a8d;
+}
+.sub-message.modern {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 60%);
+  font-family: "Cinzel Decorative";
+  font-size: 3vw;
+}
+.sub-message.elvish {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  font-family: "Hobbiton Brush hand";
+  font-size: 4vw;
+}
+
+.toggle {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  color: #606060;
+  font-size: 12pt;
+  cursor: pointer;
 }

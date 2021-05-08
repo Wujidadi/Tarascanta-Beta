@@ -42,22 +42,49 @@ input, textarea {
 }
 
 .main-message {
-    @include fixed-center($ty: -100%);
     width: 100%;
     color: #0f73dd;
-    font-family: "Half-Elven";
-    font-size: 6.6666667vw;
     text-align: center;
+
+    &.modern {
+        @include fixed-center($ty: -80%);
+        font-family: "Tangerine";
+        font-size: 14vw;
+    }
+
+    &.elvish {
+        @include fixed-center($ty: -100%);
+        font-family: "Half-Elven";
+        font-size: 6.6666667vw;
+    }
 }
 
 .sub-message {
-    @include fixed-center($ty: 10%);
     width: 100%;
-    font-family: "Hobbiton Brush hand";
-    font-size: 3vw;
     text-align: center;
 
     &, a {
         color: #0c4a8d;
     }
+
+    &.modern {
+        @include fixed-center($ty: 60%);
+        font-family: "Cinzel Decorative";
+        font-size: 3vw;
+    }
+
+    &.elvish {
+        @include fixed-center($ty: 10%);
+        font-family: "Hobbiton Brush hand";
+        font-size: 4vw;
+    }
+}
+
+.toggle {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    color: #606060;
+    font-size: 12pt;
+    cursor: pointer;
 }
