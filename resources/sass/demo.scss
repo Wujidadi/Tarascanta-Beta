@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Half-Elven";
+    src: url(/fonts/HalfElven-gzj4.ttf);
+}
+
+@font-face {
+    font-family: "Hobbiton Brush hand";
+    src: url(/fonts/hobbitonbrushhand.ttf);
+}
+
 @mixin fixed-center($tx: -50%, $ty: -50%) {
     position: fixed;
     top: 50%;
@@ -32,18 +42,18 @@ input, textarea {
 }
 
 .main-message {
-    @include fixed-center($ty: -80%);
+    @include fixed-center($ty: -100%);
     width: 100%;
     color: #0f73dd;
-    font-family: Tangerine;
-    font-size: 14vw;
+    font-family: "Half-Elven";
+    font-size: 6.6666667vw;
     text-align: center;
 }
 
 .sub-message {
-    @include fixed-center($ty: 60%);
+    @include fixed-center($ty: 10%);
     width: 100%;
-    font-family: "Cinzel Decorative";
+    font-family: "Hobbiton Brush hand";
     font-size: 3vw;
     text-align: center;
 

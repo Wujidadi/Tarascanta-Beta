@@ -7,16 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel+Decorative">
     <style><?php
         loadCSS(PUBLIC_DIR . '/css/demo.css');
     ?></style>
 </head>
 <body>
     <main>
-        <div class="main-message"><?php echo $mainMessage; ?></div>
-        <div class="sub-message"><?php
+        <div class="main-message" title="<?php echo $mainMessage; ?>"><?php echo $mainMessage; ?></div>
+        <div class="sub-message" title="Contact to the Maintainer"><?php
 
 if (isset($maintainer))
 {
