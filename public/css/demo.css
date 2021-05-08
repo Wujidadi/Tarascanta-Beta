@@ -28,6 +28,10 @@ input:focus, textarea:focus {
   background-color: #888;
 }
 
+.hidden {
+  display: none;
+}
+
 .main-message {
   width: 100%;
   color: #0f73dd;

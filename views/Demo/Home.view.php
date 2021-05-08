@@ -16,8 +16,20 @@
 <body>
     <main>
         <div id="toggle-font" class="toggle">Modern</div>
-        <div id="main-message" class="main-message elvish" title="<?php echo $mainMessage; ?>"><?php echo $mainMessage; ?></div>
-        <div id="sub-message" class="sub-message elvish" title="Contact to the Maintainer"><?php
+
+        <div id="main-message-elvish" class="main-message elvish" title="<?php echo $mainMessage; ?>"><?php echo $mainMessage; ?></div>
+        <div id="sub-message-elvish" class="sub-message elvish" title="Contact to the Maintainer"><?php
+
+if (isset($maintainer))
+{
+    $mailto = sprintf('<a href="mailto:%1$s<%2$s>">Contact to the Maintainer</a>', $maintainer['name'], $maintainer['address']);
+    echo $mailto;
+}
+
+        ?></div>
+
+        <div id="main-message-modern" class="main-message modern hidden" title="<?php echo $mainMessage; ?>"><?php echo $mainMessage; ?></div>
+        <div id="sub-message-modern" class="sub-message modern hidden" title="Contact to the Maintainer"><?php
 
 if (isset($maintainer))
 {
@@ -30,34 +42,26 @@ if (isset($maintainer))
     <script src="<?php echo AssetCachebuster('/js/demo.js', CachebusterLength); ?>"></script>
     <script>
         let fontMode = 'Elvish',
-            toggle   = document.querySelector('#toggle-font'),
-            mainMsg  = document.querySelector('#main-message'),
-            subMsg   = document.querySelector('#sub-message');
+            opFontMode = {
+                'Elvish': 'Modern',
+                'Modern': 'Elvish'
+            },
+            toggle = document.querySelector('#toggle-font'),
+            mainMsgElvish = document.querySelector('#main-message-elvish'),
+            subMsgElvish = document.querySelector('#sub-message-elvish'),
+            mainMsgModern = document.querySelector('#main-message-modern'),
+            subMsgModern = document.querySelector('#sub-message-modern');
 
         toggle.addEventListener('click', toggleFont);
 
         function toggleFont()
         {
-            switch (fontMode)
-            {
-                case 'Elvish':
-                    mainMsg.classList.add('modern');
-                    subMsg.classList.add('modern');
-                    mainMsg.classList.remove('elvish');
-                    subMsg.classList.remove('elvish');
-                    toggle.innerHTML = 'Elvish';
-                    fontMode = 'Modern';
-                    break;
-
-                case 'Modern':
-                    mainMsg.classList.add('elvish');
-                    subMsg.classList.add('elvish');
-                    mainMsg.classList.remove('modern');
-                    subMsg.classList.remove('modern');
-                    toggle.innerHTML = 'Modern';
-                    fontMode = 'Elvish';
-                    break;
-            }
+            mainMsgElvish.classList.toggle('hidden');
+            subMsgElvish.classList.toggle('hidden');
+            mainMsgModern.classList.toggle('hidden');
+            subMsgModern.classList.toggle('hidden');
+            toggle.innerHTML = fontMode;
+            fontMode = opFontMode[fontMode];
         }
     </script>
 </body>
