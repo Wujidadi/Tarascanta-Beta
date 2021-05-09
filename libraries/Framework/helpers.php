@@ -72,7 +72,7 @@ if (!function_exists('IsSafe'))
      *
      * Warning while `$value` is undefined (not able to replace `isset()` fully), can be suppressed using character `@`.
      *
-     * @param  integer|string|array|object $value Input value
+     * @param  integer|string|array|object  $value  Input value
      * @return boolean
      */
     function IsSafe($value = null)
@@ -96,7 +96,7 @@ if (!function_exists('MsTime'))
     /**
      * Get a microsecond-level time string. If a timestamp is given, the time string will correspond to it.
      *
-     * @param  string|integer|double|null $Timestamp Timestamp
+     * @param  string|integer|double|null  $Timestamp  Timestamp
      * @return string
      */
     function MsTime($Timestamp = null)
@@ -124,7 +124,7 @@ if (!function_exists('MsTimestamp'))
     /**
      * Get the microsecond-level timestamp. If a time string is given, the timestamp will correspond to it.
      *
-     * @param  string|null $TimeString Time string
+     * @param  string|null  $TimeString  Time string
      * @return double
      */
     function MsTimestamp($TimeString = null)
@@ -164,7 +164,7 @@ if (!function_exists('CheckYmdHis'))
     /**
      * Check is the time string in the legal `Y-m-d H:i:s` format.
      *
-     * @param  string $TimeString Time string
+     * @param  string  $TimeString  Time string
      * @return boolean
      */
     function CheckYmdHis($TimeString)
@@ -215,7 +215,7 @@ if (!function_exists('SecondsToEnglishString'))
     /**
      * Convert a number of seconds to other time units
      *
-     * @param  integer $Seconds Number of seconds
+     * @param  integer  $Seconds  Number of seconds
      * @return string|null
      */
     function SecondsToEnglishString($Seconds)
@@ -225,10 +225,10 @@ if (!function_exists('SecondsToEnglishString'))
         $Hour = (($Seconds - $Second) / 60 / 60) % 24;
         $Day = (($Seconds - $Second) / 60 / 60 / 24) % 7;
         $Week = floor(($Seconds - $Second) / 60 / 60 / 24 / 7);
-        
+
         $Array = [];
 
-        // Week
+        # Week
         if ($Week > 1)
         {
             $Array[] = $Week . ' weeks';
@@ -238,7 +238,7 @@ if (!function_exists('SecondsToEnglishString'))
             $Array[] = $Week . ' week';
         }
 
-        // Day
+        # Day
         if ($Day > 1)
         {
             $Array[] = $Day . ' days';
@@ -248,7 +248,7 @@ if (!function_exists('SecondsToEnglishString'))
             $Array[] = $Day . ' day';
         }
 
-        // Hour
+        # Hour
         if ($Hour > 1)
         {
             $Array[] = $Hour . ' hours';
@@ -258,7 +258,7 @@ if (!function_exists('SecondsToEnglishString'))
             $Array[] = $Hour . ' hour';
         }
 
-        // Minute
+        # Minute
         if ($Minute > 1)
         {
             $Array[] = $Minute . ' minutes';
@@ -268,7 +268,7 @@ if (!function_exists('SecondsToEnglishString'))
             $Array[] = $Minute . ' minute';
         }
 
-        // Second
+        # Second
         if ($Second > 1)
         {
             $Array[] = $Second . ' seconds';
@@ -290,9 +290,9 @@ if (!function_exists('ChineseWeekDate'))
     /**
      * Convert given date as Chinese in the "Y 年 n 月 j 日" format with name of day of the week
      *
-     * @param  string  $Date   Time string can be parse by `strtotime()`. Default value is `null` and the current date will be substituted in 
-     * @param  boolean $Gap    Whether to place blanks between numbers and Chinese characters. Default value is `true`
-     * @param  string  $Prefix Prefix of name of day of the week. Default value is `x` (星期), other options: `z` (週)
+     * @param  string   $Date    Time string can be parse by `strtotime()`. Default value is `null` and the current date will be substituted in 
+     * @param  boolean  $Gap     Whether to place blanks between numbers and Chinese characters. Default value is `true`
+     * @param  string   $Prefix  Prefix of name of day of the week. Default value is `x` (星期), other options: `z` (週)
      * @return string[]
      */
     function ChineseWeekDate($Date = null, $Gap = true, $Prefix = 'x')
@@ -361,7 +361,7 @@ if (!function_exists('ExcelColumnToNumber'))
     /**
      * Convert column name in **Excel A1 Reference Style** to number (Maximum in Office 2019 is **XFD** = **16384**).
      *
-     * @param  string $Column Column name
+     * @param  string  $Column  Column name
      * @return integer|boolean
      */
     function ExcelColumnToNumber($Column)
@@ -394,7 +394,7 @@ if (!function_exists('NumberToExcelColumn'))
     /**
      * Convert number to column name in **Excel A1 Reference Style** (Maximum in Office 2019 is **XFD** = **16384**).
      *
-     * @param  integer $Number Column number
+     * @param  integer  $Number  Column number
      * @return string
      */
     function NumberToExcelColumn($Number)
@@ -407,44 +407,44 @@ if (!function_exists('NumberToExcelColumn'))
 
         do
         {
-            // Handling of the 1st digit
+            # Handling of the 1st digit
             if ($Digit === 0)
             {
-                $Remainder = $Number % 26;              // Get the remainder of dividing by 26
-                $Quotient = (int) floor($Number / 26);  // Get the quotient of dividing by 26
-                $Value = $ColumnChar[$Remainder];       // Get alphabet value of this digit by Remainder
-                $Column = $Value;                       // Put the alphabet value into string Column
+                $Remainder = $Number % 26;                // Get the remainder of dividing by 26
+                $Quotient = (int) floor($Number / 26);    // Get the quotient of dividing by 26
+                $Value = $ColumnChar[$Remainder];         // Get alphabet value of this digit by Remainder
+                $Column = $Value;                         // Put the alphabet value into string Column
 
-                $LowDigitValue = $Value;                // Save the alphabet value as the alphabet value of previous digit
-                $Number = $Quotient;                    // Replace Number with current Quotient
+                $LowDigitValue = $Value;                  // Save the alphabet value as the alphabet value of previous digit
+                $Number = $Quotient;                      // Replace Number with current Quotient
 
-                $Digit++;                               // Add 1 to the order of the digit
+                $Digit++;                                 // Add 1 to the order of the digit
             }
-            // Handling of 2nd and more digit
+            # Handling of 2nd and more digit
             else
             {
                 if ($LowDigitValue === 'Z')
                 {
-                    $Number--;                          // Subtract 1 from Number while the alphabet value previous digit is Z
+                    $Number--;                            // Subtract 1 from Number while the alphabet value previous digit is Z
                 }
-                $Remainder = $Number % 26;              // Get the remainder of dividing by 26
-                $Quotient = (int)floor($Number / 26);   // Get the quotient of dividing by 26
-                $Value = $ColumnChar[$Remainder];       // Get alphabet value of this digit by Remainder
+                $Remainder = $Number % 26;                // Get the remainder of dividing by 26
+                $Quotient = (int) floor($Number / 26);    // Get the quotient of dividing by 26
+                $Value = $ColumnChar[$Remainder];         // Get alphabet value of this digit by Remainder
 
                 if ($Quotient === 0 && $LowDigitValue === 'Z' && $Value === 'Z')
                 {
-                    // Add no alphabet value to Column while Quotient is 0 (highest digit) and the alphabet value
-                    // of the previous digit is Z (order of the digit can not be added anymore)
+                    # Add no alphabet value to Column while Quotient is 0 (highest digit) and the alphabet value
+                    # of the previous digit is Z (order of the digit can not be added anymore)
                 }
                 else
                 {
-                    $Column = $Value . $Column;         // Add the alphabet value to Column, otherwise
+                    $Column = $Value . $Column;           // Add the alphabet value to Column, otherwise
                 }
 
-                $LowDigitValue = $Value;                // Save the alphabet value as the alphabet value of previous digit
-                $Number = $Quotient;                    // Replace Number with current Quotient
+                $LowDigitValue = $Value;                  // Save the alphabet value as the alphabet value of previous digit
+                $Number = $Quotient;                      // Replace Number with current Quotient
 
-                $Digit++;                               // Add 1 to the order of the digit
+                $Digit++;                                 // Add 1 to the order of the digit
             }
         }
         while ($Number > 0);
@@ -458,7 +458,7 @@ if (!function_exists('Blank'))
     /**
      * Generate specified number of blanks
      *
-     * @param  integer $Number Number of blanks
+     * @param  integer  $Number  Number of blanks
      * @return string
      */
     function Blank($Number = 1)
@@ -479,7 +479,7 @@ if (!function_exists('RemoveTrailingZeros'))
      *
      * The number-string should has been handled by `number_format()` and gotten formatted with digit-grouping commas.
      *
-     * @param  string $strnum Formatted number-string
+     * @param  string  $strnum  Formatted number-string
      * @return string
      */
     function RemoveTrailingZeros($strnum)
@@ -503,7 +503,7 @@ if (!function_exists('CombineRegex'))
     /**
      * Input an array of regular expression strings, and return a combined single Regex string.
      *
-     * @param  string[] $segments Array of regular expression strings
+     * @param  string[]  $segments  Array of regular expression strings
      * @return string
      */
     function CombineRegex($segments)
@@ -536,7 +536,9 @@ if (!function_exists('StrBase62'))
     /**
      * Get random base 62 string.
      *
-     * @param  integer $length Length of the string
+     * Original name: `str_base62`
+     *
+     * @param  integer  $length  Length of the string
      * @return string
      */
     function StrBase62($length = 8)
@@ -556,7 +558,7 @@ if (!function_exists('Base10To62'))
     /**
      * Convert a decimal (base 10) number to base 62.
      *
-     * @param  integer $num Decimal (base 10) number
+     * @param  integer  $num  Decimal (base 10) number
      * @return string
      */
     function Base10To62($num)
@@ -578,7 +580,7 @@ if (!function_exists('Base62To10'))
     /**
      * Convert a base 62 number to decimal (base 10).
      *
-     * @param  integer $num Base 62 number
+     * @param  integer  $num  Base 62 number
      * @return string
      */
     function Base62To10($num)
@@ -603,12 +605,12 @@ if (!function_exists('Guid'))
      *
      * Original author: Sujip Thapa (https://github.com/sudiptpa/guid)
      *
-     * @param  boolean $trim Whether to remove opening and closing braces
+     * @param  boolean  $trim  Whether to remove opening and closing braces
      * @return string
      */
     function Guid($trim = true)
     {
-        // Windows
+        # Windows
         if (function_exists('com_create_guid') === true) {
             if ($trim === true)
             {
@@ -620,7 +622,7 @@ if (!function_exists('Guid'))
             }
         }
 
-        // OSX/Linux
+        # OSX/Linux
         if (function_exists('openssl_random_pseudo_bytes') === true)
         {
             $data = openssl_random_pseudo_bytes(16);
@@ -629,7 +631,7 @@ if (!function_exists('Guid'))
             return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
         }
 
-        // Fallback (PHP 4.2+)
+        # Fallback (PHP 4.2+)
         mt_srand((double) microtime() * 10000);
         $charid = strtolower(md5(uniqid(rand(), true)));
         $hyphen = chr(45);                                  // "-"
@@ -682,25 +684,25 @@ if (!function_exists('Base62Guid'))
     /**
      * Convert a hexadecimal (base 16) GUID to base 62; it should be a 24-digit string or 28-digit string with dashes.
      *
-     * @param  boolean $dash Whether to include dashes
+     * @param  boolean  $dash  Whether to include dashes
      * @return string
      */
     function Base62Guid($dash = false)
     {
-        // Separator, none by default ($dash = false)
+        # Separator, none by default ($dash = false)
         $separator = $dash ? '-' : '';
 
-        // Generate the GUID
+        # Generate the GUID
         $guid = Guid();
 
-        // Divide the GUID into an array by the dashes
+        # Divide the GUID into an array by the dashes
         $guidHex = explode('-', $guid);
 
-        // Separately convert the 5 parts of the GUID to decimal (base 10) and then
-        // convenrt them to base 62 and make them up to a manner of 6-3-3-3-9
+        # Separately convert the 5 parts of the GUID to decimal (base 10) and then
+        # convenrt them to base 62 and make them up to a manner of 6-3-3-3-9
         foreach ($guidHex as $key => $idhex)
         {
-            // Each of the 5 parts of the GUID are 6, 3, 3, 3, 9-digits after being converted to base 62
+            # Each of the 5 parts of the GUID are 6, 3, 3, 3, 9-digits after being converted to base 62
             switch ($key)
             {
                 case 0:
@@ -721,13 +723,13 @@ if (!function_exists('Base62Guid'))
                     break;
             }
 
-            // Convert to decimal (base 10) from hexadecimal (base 16)
+            # Convert to decimal (base 10) from hexadecimal (base 16)
             $guidDec[$key] = hexdec($idhex);
 
-            // Convert to base 62 from decimal (base 10)
+            # Convert to base 62 from decimal (base 10)
             $guidBase62[$key] = Base10To62($guidDec[$key]);
 
-            // Prepend numbers randomly while the digits are not enough
+            # Prepend numbers randomly while the digits are not enough
             $len = strlen($guidBase62[$key]);
             $ret = '';
             if (strlen($len) < $pad)
@@ -740,10 +742,10 @@ if (!function_exists('Base62Guid'))
             $guidBase62[$key] = $ret . $guidBase62[$key];
         }
 
-        // Combine the 5 parts (can be separated by dashes)
+        # Combine the 5 parts (can be separated by dashes)
         $bguid = implode($separator, $guidBase62);
 
-        // Return base-62 GUID
+        # Return base-62 GUID
         return $bguid;
     }
 }
@@ -753,25 +755,25 @@ if (!function_exists('Base62Tguid'))
     /**
      * Convert a hexadecimal (base 16) TGUID to base 62; it should be a 39-digit string or 45-digit string with dashes.
      *
-     * @param  boolean $dash Whether to include dashes
+     * @param  boolean  $dash  Whether to include dashes
      * @return string
      */
     function Base62Tguid($dash = false)
     {
-        // Separator, none by default ($dash = false)
+        # Separator, none by default ($dash = false)
         $separator = $dash ? '-' : '';
 
-        // Generate the TGUID
+        # Generate the TGUID
         $tguid = Tguid16();
 
-        // Divide the TGUID into an array by the dashes
+        # Divide the TGUID into an array by the dashes
         $tguidHex = explode('-', $tguid);
 
-        // Separately convert the 7 parts of the TGUID to decimal (base 10) and then
-        // convenrt them to base 62 and make them up to a manner of 10-5-6-3-3-3-9
+        # Separately convert the 7 parts of the TGUID to decimal (base 10) and then
+        # convenrt them to base 62 and make them up to a manner of 10-5-6-3-3-3-9
         foreach ($tguidHex as $key => $idhex)
         {
-            // Each of the 7 parts of the GUID are 10, 5, 6, 3, 3, 3, 9-digits after being converted to base 62
+            # Each of the 7 parts of the GUID are 10, 5, 6, 3, 3, 3, 9-digits after being converted to base 62
             switch ($key)
             {
                 case 0:
@@ -800,18 +802,18 @@ if (!function_exists('Base62Tguid'))
                     break;
             }
 
-            // Convert to decimal (base 10) from hexadecimal (base 16)
-            // The 2nd part, entropy, need no conversion 'cause it have been base 10
+            # Convert to decimal (base 10) from hexadecimal (base 16)
+            # The 2nd part, entropy, need no conversion 'cause it have been base 10
             if ($key !== 1)
                 $tguidDec[$key] = hexdec($idhex);
             else
                 $tguidDec[$key] = $idhex;
 
-            // Convert to base 62 from decimal (base 10)
+            # Convert to base 62 from decimal (base 10)
             $tguidBase62[$key] = Base10To62($tguidDec[$key]);
 
-            // Prepend 0 to the 1st part (time from `uniqid()`) and random
-            // numbers to other part while the digits are not enough
+            # Prepend 0 to the 1st part (time from `uniqid()`) and random
+            # numbers to other part while the digits are not enough
             $len = strlen($tguidBase62[$key]);
             $ret = '';
             if (strlen($len) < $pad)
@@ -833,10 +835,10 @@ if (!function_exists('Base62Tguid'))
             $tguidBase62[$key] = $ret . $tguidBase62[$key];
         }
 
-        // Combine the 7 parts (can be separated by dashes)
+        # Combine the 7 parts (can be separated by dashes)
         $bguid = implode($separator, $tguidBase62);
 
-        // Return base-62 TGUID
+        # Return base-62 TGUID
         return $bguid;
     }
 }
@@ -850,23 +852,23 @@ if (!function_exists('Tguid'))
      *
      * Original name: `Base62Tguid42` (`base62_tguid42`)
      *
-     * @param  boolean $dash Whether to include dashes
+     * @param  boolean  $dash  Whether to include dashes
      * @return string
      */
     function Tguid($dash = false)
     {
-        // Separator, none by default ($dash = false)
+        # Separator, none by default ($dash = false)
         $separator = $dash ? '-' : '';
 
-        // Number of total digits with dashes is 48 (the last dash connect to the original TGUID is not included)
-        // If no dashes, 42
+        # Number of total digits with dashes is 48 (the last dash connect to the original TGUID is not included)
+        # If no dashes, 42
         $digit = $dash ? 48 : 42;
 
-        // Protecting mechanism, lest the total digits are beyond 39
+        # Protecting mechanism, lest the total digits are beyond 39
         $bguid = Base62Tguid($dash);
         $len = strlen($bguid);
 
-        // Append enough base 62 numbers to the TGUID
+        # Append enough base 62 numbers to the TGUID
         $ret = '';
         for ($i = 0; $i < ($digit - $len); $i++)
         {
@@ -874,7 +876,7 @@ if (!function_exists('Tguid'))
         }
         $bguid .= $separator . $ret;
 
-        // Return 42-digit TGUID
+        # Return 42-digit TGUID
         return $bguid;
     }
 }
@@ -886,39 +888,39 @@ if (!function_exists('TguidToTime'))
      *
      * Original name: `base62_guid_to_time`
      *
-     * @param  integer $tguid TGUID
+     * @param  integer  $tguid  TGUID
      * @return string
      */
     function TguidToTime($tguid = 0)
     {
-        // Pick the left-most 10 digits
+        # Pick the left-most 10 digits
         $num = substr($tguid, 0, 10);
 
-        // Convert it to decimal and convert back to hexadecimal
+        # Convert it to decimal and convert back to hexadecimal
         $dec = Base62To10($num);
         $hex = dechex($dec);
 
-        // Check for overflow to determine which digit of the hexadecimal value as the picking
-        // breakpoint between the second-level and the microsecond-level timestamp
-        // 5K1WLnfhB1 in base 62 = 72,057,594,037,927,935 in base 10
-        //                       = ff ffff ffff ffff (16^14 - 1) in base 16
+        # Check for overflow to determine which digit of the hexadecimal value as the picking
+        # breakpoint between the second-level and the microsecond-level timestamp
+        # 5K1WLnfhB1 in base 62 = 72,057,594,037,927,935 in base 10
+        #                       = ff ffff ffff ffff (16^14 - 1) in base 16
         if ($dec > Base62To10('5K1WLnfhB1'))
             $sub = -5;
         else
             $sub = -6;
 
-        // Pick the left-most 8 or 9 digits of the hexadecimal value, convert it to base 10
-        // second-level timestamp, and convert it back to `Y-m-d H:i:s` date
+        # Pick the left-most 8 or 9 digits of the hexadecimal value, convert it to base 10
+        # second-level timestamp, and convert it back to `Y-m-d H:i:s` date
         $timestampHex = substr($hex, 0, $sub);
         $timestampDec = hexdec($timestampHex);
         $date = date('Y-m-d H:i:s', $timestampDec);
 
-        // Pick the right-most 5 or 6 digits of the hexadecimal value, convert it to base 10
-        // microsecond-level timestamp (without enough accuracy)
+        # Pick the right-most 5 or 6 digits of the hexadecimal value, convert it to base 10
+        # microsecond-level timestamp (without enough accuracy)
         $microtimeHex = substr($hex, $sub);
         $microtimeDec = substr(str_pad(round(hexdec($microtimeHex), 6), 6, '0', STR_PAD_LEFT), 0, 6);
 
-        // Return `Y-m-d H:i:s` date and the microsecond
+        # Return `Y-m-d H:i:s` date and the microsecond
         return $date . '.' . $microtimeDec;
     }
 }
@@ -930,54 +932,54 @@ if (!function_exists('TimeToBase62Guid'))
      *
      * Original name: `time_to_base62_guid`
      *
-     * @param  string $time Time string
+     * @param  string  $time  Time string
      * @return string
      */
     function TimeToBase62Guid($time = '')
     {
-        // Define $time as `Y-m-d H:i:s.u` format while the time string is empty (by default)
+        # Define $time as `Y-m-d H:i:s.u` format while the time string is empty (by default)
         if ($time == '')
         {
             $time = date('Y-m-d H:i:s.u');
         }
 
-        // Remove quotation marks in the inputted time string
+        # Remove quotation marks in the inputted time string
         $time = str_replace('"', '', $time);
         $time = str_replace("'", '', $time);
 
-        // Append default microsecond value while there is no microsecond part in the inputted time string
+        # Append default microsecond value while there is no microsecond part in the inputted time string
         if (preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/', $time))
         {
             $time .= '.000000';
         }
         else
         {
-            // Return null while the inputted time string is not match neither `Y-m-d H:i:s` nor `Y-m-d H:i:s.u` format
+            # Return null while the inputted time string is not match neither `Y-m-d H:i:s` nor `Y-m-d H:i:s.u` format
             if (!preg_match('/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{1,6}$/', $time))
             {
                 return null;
             }
         }
 
-        // Divide the time string as second-and-longer and microsecond part
+        # Divide the time string as second-and-longer and microsecond part
         $date = explode('.', $time)[0];
         $microtime = explode('.', $time)[1];
 
-        // Convert the second-and-longer part to hexadecimal timestamp
+        # Convert the second-and-longer part to hexadecimal timestamp
         $timestampDec = strtotime($date);
         $timestampHex = dechex($timestampDec);
 
-        // Append 0 to the microsecond part to make it 6-digit, converting it to hexadecimal, and prepend 0 to 1 to make it 6-digit again
+        # Append 0 to the microsecond part to make it 6-digit, converting it to hexadecimal, and prepend 0 to 1 to make it 6-digit again
         $microtimeDec = str_pad($microtime, 6, '0', STR_PAD_RIGHT);
         $microtimeHex = str_pad(dechex($microtimeDec), 6, '0', STR_PAD_LEFT);
 
-        // Combine the two hexadecimal time string
+        # Combine the two hexadecimal time string
         $prototHex = $timestampHex . $microtimeHex;
 
-        // Convert the hexadecimal time string to base 62
+        # Convert the hexadecimal time string to base 62
         $base62 = gmp_strval(gmp_init($prototHex, 16), 62);
 
-        // Prepend 0 to the base 62 time string to make it 10-digit
+        # Prepend 0 to the base 62 time string to make it 10-digit
         $base62 = str_pad($base62, 10, '0', STR_PAD_LEFT);
 
         return $base62;
@@ -989,7 +991,7 @@ if (!function_exists('JsonUnescaped'))
     /**
      * Get UTF-8 encoded, Unicode and slashes unescaped JSON.
      *
-     * @param  array|object $data Data to be converted to JSON
+     * @param  array|object  $data  Data to be converted to JSON
      * @return string
      */
     function JsonUnescaped($data)
@@ -1003,7 +1005,7 @@ if (!function_exists('JsonPrettyPrinted'))
     /**
      * Get UTF-8 encoded, Unicode and slashes unescaped, and pretty-printed JSON.
      *
-     * @param  array|object $data Data to be converted to JSON
+     * @param  array|object  $data  Data to be converted to JSON
      * @return string
      */
     function JsonPrettyPrinted($data)
@@ -1017,7 +1019,7 @@ if (!function_exists('JsonEmptyObject'))
     /**
      * Remove opening and closing quotient marks from string '"{}"', to make it a standard JSON empty object.
      *
-     * @param  string $json JSON string, should be '"{}"'
+     * @param  string  $json  JSON string, should be '"{}"'
      * @return string
      */
     function JsonEmptyObject($json = '"{}"')
@@ -1031,7 +1033,7 @@ if (!function_exists('TitleOnlyPage'))
     /**
      * Get HTML of a empty page with title only
      *
-     * @param  string $title Title of the page
+     * @param  string  $title  Title of the page
      * @return string
      */
     function TitleOnlyPage($title)
@@ -1055,14 +1057,14 @@ if (!function_exists('AssetCachebuster'))
     /**
      * Append random base 62 string with specified length to the given resource path
      *
-     * @param  string  $path   Path of the resource
-     * @param  integer $length Length of the base 62 string
+     * @param  string   $path    Path of the resource
+     * @param  integer  $length  Length of the base 62 string
      * @return string
      */
     function AssetCachebuster($path, $length = 0)
     {
-        // Prepend a slash while the given path is not begin with it to ensure
-        // that the path is located from the root of the project
+        # Prepend a slash while the given path is not begin with it to ensure
+        # that the path is located from the root of the project
         if (!preg_match('/^\//', $path))
         {
             $path = '/' . $path;

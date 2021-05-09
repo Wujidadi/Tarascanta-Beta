@@ -20,7 +20,7 @@ if (!function_exists('inject'))
     /**
      * Generate the full path of the injection file.
      *
-     * @param  string $_path Short path of the injection file
+     * @param  string  $_path  Short path of the injection file
      * @return string
      */
     function inject($_path = '')
@@ -40,8 +40,8 @@ if (!function_exists('view'))
     /**
      * Render view page by short path of the view file and the given data.
      *
-     * @param  string $_path Short path of the view file
-     * @param  array  $_data Data to be rendered to the view page
+     * @param  string  $_path  Short path of the view file
+     * @param  array   $_data  Data to be rendered to the view page
      * @return void
      */
     function view($_path = '', $_data = [])

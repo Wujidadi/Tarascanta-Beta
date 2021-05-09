@@ -26,7 +26,7 @@ if ($stylesheetMap)
         {
             $css = preg_replace('/\.s(?:a|c)ss$/', '.css', $sass);
         }
-        
+
         $sassWithRelativePath = 'Resources' . DIRECTORY_SEPARATOR . 'sass' . DIRECTORY_SEPARATOR . preg_replace('/\//', DIRECTORY_SEPARATOR, $sass);
         $cssWithRelativePath  = 'Public'    . DIRECTORY_SEPARATOR . 'css'  . DIRECTORY_SEPARATOR . preg_replace('/\//', DIRECTORY_SEPARATOR, $css);
 

@@ -30,7 +30,7 @@ class Demo extends Singleton
     /**
      * Get welcome message.
      *
-     * @param  string $message String to form the welcom message
+     * @param  string  $message  String to form the welcom message
      * @return string
      */
     public function welcome($message)

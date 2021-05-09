@@ -17,7 +17,7 @@ if (!function_exists('loadCSS'))
     /**
      * Output to HTML the compressed contents of assigned CSS file.
      *
-     * @param  string $file Path of the CSS file
+     * @param  string  $file  Path of the CSS file
      * @return void
      */
     function loadCSS($file)

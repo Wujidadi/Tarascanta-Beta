@@ -75,7 +75,7 @@ class Logger extends Singleton
     /**
      * Set the prefix of the log message.
      *
-     * @param  string $prefix Prefix of the log message.
+     * @param  string  $prefix  Prefix of the log message.
      * @return void
      */
     public function setPrefix($prefix)
@@ -86,7 +86,7 @@ class Logger extends Singleton
     /**
      * Write a "DEBUG" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logDebug($message)
@@ -97,7 +97,7 @@ class Logger extends Singleton
     /**
      * Write a "INFO" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logInfo($message)
@@ -108,7 +108,7 @@ class Logger extends Singleton
     /**
      * Write a "NOTICE" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logNotice($message)
@@ -119,7 +119,7 @@ class Logger extends Singleton
     /**
      * Write a "WARNING" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logWarning($message)
@@ -130,7 +130,7 @@ class Logger extends Singleton
     /**
      * Write a "ERROR" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logError($message)
@@ -141,7 +141,7 @@ class Logger extends Singleton
     /**
      * Write a "CRITICAL" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logCritical($message)
@@ -152,7 +152,7 @@ class Logger extends Singleton
     /**
      * Write a "ALERT" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logAlert($message)
@@ -163,7 +163,7 @@ class Logger extends Singleton
     /**
      * Write a "EMERGENCY" message to the log.
      *
-     * @param  string $message Log message
+     * @param  string  $message  Log message
      * @return array
      */
     public function logEmergency($message)
@@ -174,8 +174,8 @@ class Logger extends Singleton
     /**
      * Write a message to the log.
      *
-     * @param  string $type    Type of the log message
-     * @param  string $message Log message
+     * @param  string  $type     Type of the log message
+     * @param  string  $message  Log message
      * @return array
      */
     protected function _writeLog($type, $message)

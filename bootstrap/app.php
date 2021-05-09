@@ -9,11 +9,11 @@
 |
 */
 
-/* 引入輔助方法 */
+# Introduce the helper functions
 require_once LIBRARY_DIR . '/Framework/helpers.php';
 
-/* 引入工具函數（未正式納入輔助方法 library 的函數） */
+# Introduce the tool functions (useful functions which are not put in the helpers library yet)
 require_once LIBRARY_DIR . '/Framework/tools.php';
 
-/* 引入框架方法 */
+# Introduce the framework methods
 require_once LIBRARY_DIR . '/Framework/facades.php';

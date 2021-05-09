@@ -26,9 +26,9 @@ class Router
     /**
      * Register a route.
      *
-     * @param  string   $method HTTP request method
-     * @param  string   $url    Route URL
-     * @param  callable $action Route action (method/function)
+     * @param  string     $method  HTTP request method
+     * @param  string     $url     Route URL
+     * @param  \callable  $action  Route action (method/function)
      * @return void
      */
     public function map($method, $url, $action)
@@ -49,7 +49,7 @@ class Router
     /**
      * Set the base path of the project.
      *
-     * @param  string $basePath Base path of the project
+     * @param  string  $basePath  Base path of the project
      * @return void
      */
     public function setBasePath($basePath)
@@ -60,8 +60,8 @@ class Router
     /**
      * Check the routes list according to request method and URL, and execute the action while match
      *
-     * @param  string $method HTTP request method
-     * @param  string $url    Route URL
+     * @param  string  $method  HTTP request method
+     * @param  string  $url     Route URL
      * @return boolean
      */
     public function match($method, $url)
@@ -96,14 +96,14 @@ class Router
                 }
             }
         }
-        
+
         return false;
     }
 
     /**
      * Parse a route containing parameters and return its Regex.
      *
-     * @param  string $rule Route containing parameters
+     * @param  string  $rule  Route containing parameters
      * @return string|false
      */
     private function _regex($rule)

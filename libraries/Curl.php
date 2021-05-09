@@ -72,7 +72,7 @@ class Curl extends Singleton
     /**
      * Set the number of seconds of cURL connection timeout.
      *
-     * @param  integer $second Number of seconds
+     * @param  integer  $second  Number of seconds
      * @return void
      */
     public function setConnectTimeout($second)
@@ -86,7 +86,7 @@ class Curl extends Singleton
     /**
      * Set the number of seconds of cURL function execution timeout.
      *
-     * @param  integer $second Number of seconds
+     * @param  integer  $second  Number of seconds
      * @return void
      */
     public function setTimeout($second)
@@ -100,7 +100,7 @@ class Curl extends Singleton
     /**
      * Set HTTP header fields of the cURL handle.
      *
-     * @param  array $header cURL HTTP header fields
+     * @param  array  $header  cURL HTTP header fields
      * @return void
      */
     public function setHeader($header)
@@ -114,7 +114,7 @@ class Curl extends Singleton
     /**
      * Set user agent of the cURL handle.
      *
-     * @param  string $userAgent User agent
+     * @param  string  $userAgent  User agent
      * @return void
      */
     public function setUserAgent($userAgent)
@@ -128,7 +128,7 @@ class Curl extends Singleton
     /**
      * Set whether or not to verify the peer's certificate.
      *
-     * @param  boolean $verifypeer Whether or not to verify the peer's certificate
+     * @param  boolean  $verifypeer  Whether or not to verify the peer's certificate
      * @return void
      */
     public function setSslVerifypeer($verifypeer)
@@ -139,7 +139,7 @@ class Curl extends Singleton
     /**
      * Set whether or not to follow the location by "Location: " header.
      *
-     * @param  boolean $followLocation Whether or not to follow the location by "Location: " header
+     * @param  boolean  $followLocation  Whether or not to follow the location by "Location: " header
      * @return void
      */
     public function setFollowLocation($followLocation)
@@ -150,7 +150,7 @@ class Curl extends Singleton
     /**
      * Set to `true` to return the response as a string or `false` to output it directly.
      *
-     * @param  boolean $returnTransfer Return the response as a string (`true`) or output it directly (`false`)
+     * @param  boolean  $returnTransfer  Return the response as a string (`true`) or output it directly (`false`)
      * @return void
      */
     public function setReturnTransfer($returnTransfer)
@@ -161,8 +161,8 @@ class Curl extends Singleton
     /**
      * Send a GET request.
      *
-     * @param  string $url  Target URL
-     * @param  mixed  $data Data to send
+     * @param  string  $url   Target URL
+     * @param  mixed   $data  Data to send
      * @return Curl
      */
     public function get($url, $data = null)
@@ -182,9 +182,9 @@ class Curl extends Singleton
     /**
      * Send a HEAD request.
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function head($url, $data = null, $isJson = false)
@@ -200,9 +200,9 @@ class Curl extends Singleton
     /**
      * 發送 POST 請求
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function post($url, $data = null, $isJson = false)
@@ -218,9 +218,9 @@ class Curl extends Singleton
     /**
      * Send a PUT request.
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function put($url, $data = null, $isJson = false)
@@ -236,9 +236,9 @@ class Curl extends Singleton
     /**
      * Send a DELETE request.
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function delete($url, $data = null, $isJson = false)
@@ -254,9 +254,9 @@ class Curl extends Singleton
     /**
      * Send a OPTIONS request.
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function options($url, $data = null, $isJson = false)
@@ -272,9 +272,9 @@ class Curl extends Singleton
     /**
      * Send a PATCH request.
      *
-     * @param  string  $url    Target URL
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  string   $url     Target URL
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return Curl
      */
     public function patch($url, $data = null, $isJson = false)
@@ -310,8 +310,8 @@ class Curl extends Singleton
     /**
      * Build query data body.
      *
-     * @param  mixed   $data   Data to send
-     * @param  boolean $isJson Whether or not to send the data as JSON
+     * @param  mixed    $data    Data to send
+     * @param  boolean  $isJson  Whether or not to send the data as JSON
      * @return string|array|object|null
      */
     private function _queryBody($data, $isJson = false)
@@ -320,27 +320,27 @@ class Curl extends Singleton
 
         switch ($dataType)
         {
-            // When the data is a string or resource, ignore the isJson option and pass it directly
+            # When the data is a string or resource, ignore the isJson option and pass it directly
             case 'string':
             case 'resource':
             case 'resource (closed)':
                 return $data;
 
-            // When the data is an array or an object, process it according to the isJson option
+            # When the data is an array or an object, process it according to the isJson option
             case 'array':
             case 'object':
-                // If the data should be sent as JSON, convert if to JSON
+                # If the data should be sent as JSON, convert if to JSON
                 if ($isJson)
                 {
                     return JsonUnescaped($data);
                 }
-                // If the data should not be sent as JSON, convert it as a query string
+                # If the data should not be sent as JSON, convert it as a query string
                 else
                 {
                     return http_build_query($data);
                 }
 
-            // Data in other types is ignored
+            # Data in other types is ignored
             case 'boolean':
             case 'integer':
             case 'double':
