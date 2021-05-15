@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+chdir(__DIR__);
+
+if ($argc > 1)
+{
+    switch (strtolower($argv[1]))
+    {
+        case 'test':
+            echo "\033[32mTest\033[0m" . PHP_EOL;
+            break;
+
+        case 'sass2css':
+        case 'scss2css':
+        case 'sasstocss':
+        case 'scsstocss':
+        case 'sass':
+        case 'scss':
+        case 'css':
+            echo `php tools/sass2css.php`;
+            break;
+
+        case 'dumpautoload':
+        case 'dump':
+        case 'autoload':
+        case 'classmap':
+        case 'autoloadmap':
+        case 'autoloadclassmap':
+            echo `php tools/dumpAutoload.php`;
+            break;
+
+        default:
+            break;
+    }
+}
+
+exit(0);
