@@ -26,6 +26,7 @@
 |
 | + Handling of text, character and string
 |   - function  Blank
+|   - function  TextCompress
 |   - function  RemoveTrailingZeros
 |
 | + Regular Expression
@@ -469,6 +470,30 @@ if (!function_exists('Blank'))
             $Blank .= ' ';
         }
         return $Blank;
+    }
+}
+
+if (!function_exists('TextCompress'))
+{
+    /**
+     * Compress the text: remove breaks and redundant blanks from the string.
+     *
+     * @param  string  $text  String to be compressed
+     * @return string
+     */
+    function TextCompress($text = '')
+    {
+        return preg_replace([
+            '/\r?\n */',
+            '/\( +/', '/ +\)/',
+            '/\[ +/', '/ +\]/',
+            '/\{ +/', '/ +\}/'
+        ], [
+            ' ',
+            '(', ')',
+            '[', ']',
+            '{', '}'
+        ], $text);
     }
 }
 
