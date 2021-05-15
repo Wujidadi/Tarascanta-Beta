@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Controllers\Demo;
+namespace App\Controllers;
 
-use App\Controllers\Controller;
+use App\Classes\Demo;
 
-use App\Classes\Demo\Demo;
-
-class DemoController extends Controller
+class DemoController
 {
     /**
      * Instance of this class.

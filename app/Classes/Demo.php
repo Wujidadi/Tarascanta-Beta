@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Classes\Demo;
+namespace App\Classes;
 
-use Libraries\Prototype\Singleton;
-
-class Demo extends Singleton
+class Demo
 {
     /**
      * Instance of this class.

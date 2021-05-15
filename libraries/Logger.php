@@ -3,12 +3,11 @@
 namespace Libraries;
 
 use Exception;
-use Libraries\Prototype\Singleton;
 
 /**
  * Log handle class.
  */
-class Logger extends Singleton
+class Logger
 {
     /**
      * Path of log file.

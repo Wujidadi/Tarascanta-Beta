@@ -2,12 +2,10 @@
 
 namespace Libraries;
 
-use Libraries\Prototype\Singleton;
-
 /**
  * cURL handle class.
  */
-class Curl extends Singleton
+class Curl
 {
     /**
      * cURL handle.

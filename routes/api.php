@@ -1,5 +1,5 @@
 <?php
 
-use App\Controllers\Demo\DemoController;
+use App\Controllers\DemoController;
 
 $Route->map('GET', '/api', [DemoController::getInstance(), 'api']);
