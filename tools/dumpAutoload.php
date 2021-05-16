@@ -2,11 +2,11 @@
 
 /*
 |--------------------------------------------------------------------------
-| 建構 autoload class map
+| Dump autoload class map
 |--------------------------------------------------------------------------
 |
-| 依 autoload.json 中的頂層資料夾重命名及排除規則，
-| 建構 autoload class map。
+| Generate autoload class map according to the rule of top directories
+| renaming and exceptions in autoload.json.
 |
 */
 
@@ -18,13 +18,13 @@ $autoloadMap    = json_decode($autoloadJson, true);
 $autoloadTopDir = $autoloadMap['top'];
 $autoloadExcept = $autoloadMap['exception'];
 
-$classMap = "<?php\n\nreturn " . var_export(traverse($autoloadTopDir, BASE_DIR . DIRECTORY_SEPARATOR, $autoloadExcept), true) . ";\n";
+$classMap = "<?php\n\nreturn " . VarExportFormat(traverse($autoloadTopDir, BASE_DIR . DIRECTORY_SEPARATOR, $autoloadExcept)) . ";\n";
 $mapFile  = VENDOR_DIR . DIRECTORY_SEPARATOR . 'autoload_map.php';
 file_put_contents($mapFile, $classMap);
 
 
 /*
-| 輔助函數
+| Helper functions
 */
 
 /**

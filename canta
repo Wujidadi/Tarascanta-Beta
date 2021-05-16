@@ -5,33 +5,15 @@ chdir(__DIR__);
 
 $option = getopt('', ['help']);
 
-if ($argc > 1)
+if ($argc <= 1)
+{
+    showHelp();
+}
+else
 {
     if (isset($option['help']))
     {
-        $myName = basename(__FILE__);
-        echo "Usage:\n";
-        echo sprintf("    %s \033[32m{tool name}\033[0m\n", $myName);
-        echo PHP_EOL;
-        echo "    Tool names:\n";
-        echo PHP_EOL;
-        echo sprintf("     * %s\n", 'Convert SASS/SCSS to CSS:');
-        echo sprintf("       \033[33m%s\033[0m\n", 'sass2css');
-        echo sprintf("       \033[33m%s\033[0m\n", 'scss2css');
-        echo sprintf("       \033[33m%s\033[0m\n", 'sasstocss');
-        echo sprintf("       \033[33m%s\033[0m\n", 'scsstocss');
-        echo sprintf("       \033[33m%s\033[0m\n", 'sass');
-        echo sprintf("       \033[33m%s\033[0m\n", 'scss');
-        echo sprintf("       \033[33m%s\033[0m\n", 'css');
-        echo PHP_EOL;
-        echo sprintf("     * %s\n", 'Dump autoload classes map:');
-        echo sprintf("       \033[33m%s\033[0m\n", 'dumpautoload');
-        echo sprintf("       \033[33m%s\033[0m\n", 'dump');
-        echo sprintf("       \033[33m%s\033[0m\n", 'autoload');
-        echo sprintf("       \033[33m%s\033[0m\n", 'classmap');
-        echo sprintf("       \033[33m%s\033[0m\n", 'autoloadmap');
-        echo sprintf("       \033[33m%s\033[0m\n", 'autoloadclassmap');
-        exit(0);
+        showHelp();
     }
 
     switch (strtolower($argv[1]))
@@ -60,8 +42,46 @@ if ($argc > 1)
             break;
 
         default:
+            showHelp();
             break;
     }
 }
 
 exit(0);
+
+
+/*
+| Helper functions
+*/
+
+/**
+ * Show usage help.
+ *
+ * @return void
+ */
+function showHelp()
+{
+    $myName = basename(__FILE__);
+    echo "Usage:\n";
+    echo sprintf("    %s \033[32m{tool name}\033[0m\n", $myName);
+    echo PHP_EOL;
+    echo "    Tool names:\n";
+    echo PHP_EOL;
+    echo sprintf("     * %s\n", 'Convert SASS/SCSS to CSS:');
+    echo sprintf("       \033[33m%s\033[0m\n", 'sass2css');
+    echo sprintf("       \033[33m%s\033[0m\n", 'scss2css');
+    echo sprintf("       \033[33m%s\033[0m\n", 'sasstocss');
+    echo sprintf("       \033[33m%s\033[0m\n", 'scsstocss');
+    echo sprintf("       \033[33m%s\033[0m\n", 'sass');
+    echo sprintf("       \033[33m%s\033[0m\n", 'scss');
+    echo sprintf("       \033[33m%s\033[0m\n", 'css');
+    echo PHP_EOL;
+    echo sprintf("     * %s\n", 'Dump autoload classes map:');
+    echo sprintf("       \033[33m%s\033[0m\n", 'dumpautoload');
+    echo sprintf("       \033[33m%s\033[0m\n", 'dump');
+    echo sprintf("       \033[33m%s\033[0m\n", 'autoload');
+    echo sprintf("       \033[33m%s\033[0m\n", 'classmap');
+    echo sprintf("       \033[33m%s\033[0m\n", 'autoloadmap');
+    echo sprintf("       \033[33m%s\033[0m\n", 'autoloadclassmap');
+    exit(0);
+}
