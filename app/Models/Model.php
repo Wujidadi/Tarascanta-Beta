@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use libraries\Database\DBAPI;
+use Libraries\DBAPI;
 
 /**
  * Parent class of model.
