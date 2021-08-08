@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Models;
 
-use App\Handlers\Demo;
-use Libraries\Logger;
+use App\Models;
 
-class DemoController
+/**
+ * Parent class of model.
+ */
+class DemoModel extends Model
 {
     /**
      * Instance of this class.
@@ -32,25 +34,8 @@ class DemoController
         return self::$_uniqueInstance;
     }
 
-    /**
-     * Main demo method.
-     *
-     * @return void
-     */
-    public function main()
+    public function demo()
     {
-        echo Demo::getInstance()->welcome('Tarascanta Welcome Page');
-    }
-
-    /**
-     * Main demo API method.
-     *
-     * @return void
-     */
-    public function api()
-    {
-        header('Content-Type: text/plain');
-
-        echo 'API';
+        return 'Connected to DB';
     }
 }
