@@ -12,27 +12,27 @@
 
 return [
 
-    // 'DomainUnsignedTinyint' => [
+    // 'Domains\UnsignedTinyint' => [
     //     // 'up',
     //     // 'down'
     // ],
 
-    // 'TriggerFunctionUpdateTimestamp' => [
+    // 'TriggerFunctions\UpdateTimestamp' => [
     //     // 'up',
     //     // 'down'
     // ],
 
-    // 'TableDemoTable' => [
+    // 'Tables\DemoTable' => [
     //     // 'up',
     //     // 'down'
     // ],
 
-    // 'TriggerAutoUpdateTimeOnDemoTable' => [
+    // 'Triggers\AutoUpdateTimeOnDemoTable' => [
     //     // 'up',
     //     // 'down'
     // ],
 
-    // 'TableExampleTable' => [
+    // 'Tables\ExampleTable' => [
     //     // 'up',
     //     // 'changeNameOfCreatedTime',
     //     // 'changeNameOfUpdatedTime',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Migrations;
+namespace Database\Migrations\Triggers;
 
 use PDOException;
 use Libraries\DBAPI;
@@ -8,16 +8,30 @@ use Libraries\Logger;
 use Database\Migration;
 
 /**
- * Migration class of the domain `unsigned_tinyint`.
+ * Migration class of the trigger `auto_update_time` on table `DemoTable`.
  */
-class DomainUnsignedTinyint extends Migration
+class AutoUpdateTimeOnDemoTable extends Migration
 {
     /**
-     * Name of the target domain.
+     * Name of the target trigger.
      *
      * @var string
      */
-    protected $_domainName = 'unsigned_tinyint';
+    protected $_triggerName = 'auto_update_time';
+
+    /**
+     * Name of the target table.
+     *
+     * @var string
+     */
+    protected $_tableName = 'DemoTable';
+
+    /**
+     * Name of the trigger function our trigger calls.
+     *
+     * @var string
+     */
+    protected $_triggerFunctionName = 'update_timestamp';
 
     protected $_className;
 
@@ -39,7 +53,7 @@ class DomainUnsignedTinyint extends Migration
     }
 
     /**
-     * Create the domain.
+     * Create the trigger.
      *
      * @return boolean
      */
@@ -48,25 +62,25 @@ class DomainUnsignedTinyint extends Migration
         $sqlArray = [
 
             <<<EOT
-            CREATE DOMAIN public."{$this->_domainName}"
-                AS int2
-                CHECK (
-                    VALUE >= 0 AND VALUE < 256
-                );
+            CREATE TRIGGER "{$this->_triggerName}"
+                BEFORE UPDATE
+                ON public."{$this->_tableName}"
+                FOR EACH ROW
+                EXECUTE FUNCTION public.{$this->_triggerFunctionName}();
             EOT
 
         ];
 
         if ($runResult = $this->_run($this->_className, __FUNCTION__, $sqlArray))
         {
-            Logger::getInstance()->logInfo("Domain \"{$this->_domainName}\" created");
+            Logger::getInstance()->logInfo("Trigger \"{$this->_triggerName}\" created");
         }
 
         return $runResult;
     }
 
     /**
-     * Drop the domain.
+     * Drop the trigger.
      *
      * @return boolean
      */
@@ -74,13 +88,13 @@ class DomainUnsignedTinyint extends Migration
     {
         $sqlArray = [
 
-            "DROP DOMAIN IF EXISTS public.\"{$this->_domainName}\""
+            "DROP TRIGGER IF EXISTS \"{$this->_triggerName}\" on public.\"{$this->_tableName}\""
 
         ];
 
         if ($runResult = $this->_run($this->_className, __FUNCTION__, $sqlArray))
         {
-            Logger::getInstance()->logInfo("Domain \"{$this->_domainName}\" dropped");
+            Logger::getInstance()->logInfo("Trigger \"{$this->_triggerName}\" dropped");
         }
 
         return $runResult;

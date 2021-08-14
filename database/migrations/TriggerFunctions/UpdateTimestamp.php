@@ -1,8 +1,6 @@
 <?php
 
-// auto_update_time
-
-namespace Database\Migrations;
+namespace Database\Migrations\TriggerFunctions;
 
 use PDOException;
 use Libraries\DBAPI;
@@ -10,26 +8,12 @@ use Libraries\Logger;
 use Database\Migration;
 
 /**
- * Migration class of the trigger `auto_update_time` on table `DemoTable`.
+ * Migration class of the trigger function `update_timestamp()`.
  */
-class TriggerAutoUpdateTimeOnDemoTable extends Migration
+class UpdateTimestamp extends Migration
 {
     /**
-     * Name of the target trigger.
-     *
-     * @var string
-     */
-    protected $_triggerName = 'auto_update_time';
-
-    /**
-     * Name of the target table.
-     *
-     * @var string
-     */
-    protected $_tableName = 'DemoTable';
-
-    /**
-     * Name of the trigger function our trigger calls.
+     * Name of the target trigger function.
      *
      * @var string
      */
@@ -55,7 +39,7 @@ class TriggerAutoUpdateTimeOnDemoTable extends Migration
     }
 
     /**
-     * Create the trigger.
+     * Create the trigger function.
      *
      * @return boolean
      */
@@ -64,25 +48,29 @@ class TriggerAutoUpdateTimeOnDemoTable extends Migration
         $sqlArray = [
 
             <<<EOT
-            CREATE TRIGGER "{$this->_triggerName}"
-                BEFORE UPDATE
-                ON public."{$this->_tableName}"
-                FOR EACH ROW
-                EXECUTE FUNCTION public.{$this->_triggerFunctionName}();
+            CREATE OR REPLACE FUNCTION public.{$this->_triggerFunctionName}()
+                RETURNS trigger
+                LANGUAGE 'plpgsql'
+            AS $$
+            BEGIN
+                new."UpdatedAt" = CURRENT_TIMESTAMP;
+                RETURN new;
+            END
+            $$;
             EOT
 
         ];
 
         if ($runResult = $this->_run($this->_className, __FUNCTION__, $sqlArray))
         {
-            Logger::getInstance()->logInfo("Trigger \"{$this->_triggerName}\" created");
+            Logger::getInstance()->logInfo("Trigger function \"{$this->_triggerFunctionName}\" created");
         }
 
         return $runResult;
     }
 
     /**
-     * Drop the trigger.
+     * Drop the trigger function.
      *
      * @return boolean
      */
@@ -90,13 +78,13 @@ class TriggerAutoUpdateTimeOnDemoTable extends Migration
     {
         $sqlArray = [
 
-            "DROP TRIGGER IF EXISTS \"{$this->_triggerName}\" on public.\"{$this->_tableName}\""
+            "DROP FUNCTION IF EXISTS public.{$this->_triggerFunctionName}"
 
         ];
 
         if ($runResult = $this->_run($this->_className, __FUNCTION__, $sqlArray))
         {
-            Logger::getInstance()->logInfo("Trigger \"{$this->_triggerName}\" dropped");
+            Logger::getInstance()->logInfo("Trigger function \"{$this->_triggerFunctionName}\" dropped");
         }
 
         return $runResult;

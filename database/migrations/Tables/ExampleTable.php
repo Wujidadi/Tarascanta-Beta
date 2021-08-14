@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Migrations;
+namespace Database\Migrations\Tables;
 
 use PDOException;
 use Libraries\DBAPI;
@@ -10,7 +10,7 @@ use Database\Migration;
 /**
  * Migration class of the table `ExampleTable`.
  */
-class TableExampleTable extends Migration
+class ExampleTable extends Migration
 {
     /**
      * Name of the target table.
