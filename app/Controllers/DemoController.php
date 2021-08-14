@@ -56,4 +56,14 @@ class DemoController
 
         echo 'API';
     }
+
+    /**
+     * Return message to the demo command line script under the "`bin`" directory.
+     *
+     * @return string
+     */
+    public function cmd()
+    {
+        return 'Demo command line';
+    }
 }
