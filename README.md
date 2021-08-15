@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-08-15
+* Update structure of DB config file, `DBAPI::getInstance()`, constructors and extending ways of `Migration`, `Model` and their children classes for fitting multiple DB configurations.
+
 ### 2021-08-14
 * Reorganize the migration classes.
 * Move startup scripts of `bin` and `tools` to the `bootstrap` directory and update the file structure of `bootstrap`.
