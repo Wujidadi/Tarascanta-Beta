@@ -5,6 +5,10 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-08-23
+* Introduction of the tool of JavaScript codes minimizing and obfuscating (base on npm packages `webpack`, `webpack-cli` and `terser-webpack-plugin`).
+* Introduntion of the tool of CSS codes minimizing (base on npm packages `clean-css` and `clean-css-cli`).
+
 ### 2021-08-15
 * Update structure of DB config file, `DBAPI::getInstance()`, constructors and extending ways of `Migration`, `Model` and their children classes for fitting multiple DB configurations.
 
