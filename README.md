@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-08-26
+* Add `--verbose` option to tool `canta` to enable to display the raw message of the original command execution. 
+
 ### 2021-08-23
 * Introduction of the tool of JavaScript codes minimizing and obfuscating (base on npm packages `webpack`, `webpack-cli` and `terser-webpack-plugin`).
 * Introduntion of the tool of CSS codes minimizing (base on npm packages `clean-css` and `clean-css-cli`).
