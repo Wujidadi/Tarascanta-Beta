@@ -66,13 +66,13 @@ class AutoUpdateTimeOnDemoTable extends Migration
     {
         $sqlArray = [
 
-            <<<EOT
+            <<<SQL
             CREATE TRIGGER "{$this->_triggerName}"
                 BEFORE UPDATE
                 ON public."{$this->_tableName}"
                 FOR EACH ROW
                 EXECUTE FUNCTION public.{$this->_triggerFunctionName}();
-            EOT
+            SQL
 
         ];
 

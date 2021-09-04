@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-09-04
+* Modify the heredoc identifiers in migration classes to "SQL" from original "EOT".
+
 ### 2021-08-26
 * Add `--verbose` option to tool `canta` to enable to display the raw message of the original command execution. 
 

@@ -52,7 +52,7 @@ class ExampleTable extends Migration
     {
         $sqlArray = [
 
-            <<<EOT
+            <<<SQL
             CREATE TABLE IF EXISTS public."{$this->_tableName}"
             (
                 "ID"         bigserial                                             NOT NULL,
@@ -65,7 +65,9 @@ class ExampleTable extends Migration
                 PRIMARY KEY ("ID")
             )
             TABLESPACE pg_default
-            EOT,
+            SQL,
+
+            "COMMENT ON TABLE public.\"{$this->_tableName}\" IS '範例資料表'",
 
             "ALTER TABLE public.\"{$this->_tableName}\" OWNER to root",
 
