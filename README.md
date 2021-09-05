@@ -6,7 +6,7 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 ## Development Logs
 
 ### 2021-09-04
-* Modify the heredoc identifiers in migration classes to "SQL" from original "EOT".
+* Modify the heredoc identifiers in migration classes to `SQL` from original `EOT`.
 * Change the behaviour while a PDOException is met in DB migration (return `false` -> throw new Exception with code 35).
 
 ### 2021-08-26
