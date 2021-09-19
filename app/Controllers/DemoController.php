@@ -18,13 +18,6 @@ class DemoController
     protected static $_uniqueInstance = null;
 
     /**
-     * Constructor.
-     *
-     * @return void
-     */
-    protected function __construct() {}
-
-    /**
      * Get the instance of this class.
      * 
      * @return self
@@ -34,6 +27,13 @@ class DemoController
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();
         return self::$_uniqueInstance;
     }
+
+    /**
+     * Constructor.
+     *
+     * @return void
+     */
+    protected function __construct() {}
 
     /**
      * Main demo method.

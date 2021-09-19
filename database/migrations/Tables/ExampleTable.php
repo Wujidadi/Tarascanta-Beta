@@ -19,13 +19,14 @@ class ExampleTable extends Migration
      */
     protected $_tableName = 'ExampleTable';
 
-    protected $_className;
-
+    /**
+     * Instance of this class.
+     *
+     * @var self|null
+     */
     protected static $_uniqueInstance = null;
 
-    /**
-     * @return self
-     */
+    /** @return self */
     public static function getInstance()
     {
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();

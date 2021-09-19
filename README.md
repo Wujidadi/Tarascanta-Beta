@@ -5,6 +5,10 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-09-19
+* Change the order in code of the constructor of some classes.
+* Move doc comments to front of the methods of parent classes if there are inheritance relation between two classes.
+
 ### 2021-09-05
 * Add project initialization command to tool `canta`.
 
