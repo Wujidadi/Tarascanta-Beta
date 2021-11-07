@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-11-07
+* Introduce HTTP request/response handling libraries.
+
 ### 2021-09-19
 * Change the order in code of the constructor of some classes.
 * Move doc comments to front of the methods of parent classes if there are inheritance relation between two classes.
