@@ -11,6 +11,7 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 * DBAPI changes:
   1. Enhance supporting of query parameters in array.
   2. Add supporting of the types of query parameters.
+* Add function `SumWord` in `Framework/helpers`.
 
 ### 2021-09-19
 * Change the order in code of the constructor of some classes.
