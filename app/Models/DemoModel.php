@@ -16,7 +16,12 @@ class DemoModel extends Model
      */
     protected static $_uniqueInstance = null;
 
-    public static function getInstance()
+    /**
+     * Get the instance of this class.
+     * 
+     * @return self
+     */
+    public static function getInstance(): self
     {
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();
         return self::$_uniqueInstance;
@@ -37,7 +42,7 @@ class DemoModel extends Model
      *
      * @return string
      */
-    public function demo()
+    public function demo(): string
     {
         return 'Connected to DB';
     }

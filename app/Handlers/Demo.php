@@ -26,19 +26,19 @@ class Demo
      * 
      * @return self
      */
-    public static function getInstance()
+    public static function getInstance(): self
     {
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();
         return self::$_uniqueInstance;
     }
 
     /**
-     * Get welcome message.
+     * Output welcome message.
      *
      * @param  string  $message  String to form the welcom message
-     * @return string
+     * @return void
      */
-    public function welcome($message)
+    public function welcome(string $message): void
     {
         echo 'Welcome to ' . $message;
     }

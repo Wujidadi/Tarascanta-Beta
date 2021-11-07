@@ -22,7 +22,7 @@ class DemoController
      * 
      * @return self
      */
-    public static function getInstance()
+    public static function getInstance(): self
     {
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();
         return self::$_uniqueInstance;
@@ -40,7 +40,7 @@ class DemoController
      *
      * @return void
      */
-    public function main()
+    public function main(): void
     {
         echo Demo::getInstance()->welcome('Tarascanta Welcome Page');
     }
@@ -50,7 +50,7 @@ class DemoController
      *
      * @return void
      */
-    public function api()
+    public function api(): void
     {
         header('Content-Type: text/plain');
 
@@ -62,7 +62,7 @@ class DemoController
      *
      * @return string
      */
-    public function cmd()
+    public function cmd(): string
     {
         return 'Demo command line';
     }

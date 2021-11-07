@@ -7,6 +7,7 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ### 2021-11-07
 * Introduce HTTP request/response handling libraries.
+* Enhance type declarations of all functions and classes.
 
 ### 2021-09-19
 * Change the order in code of the constructor of some classes.

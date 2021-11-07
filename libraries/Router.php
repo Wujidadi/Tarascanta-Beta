@@ -31,7 +31,7 @@ class Router
      * @param  \callable  $action  Route action (method/function)
      * @return void
      */
-    public function map($method, $url, $action)
+    public function map(string $method, string $url, \callable $action): void
     {
         $this->routes[] = [$method, $url, $action];
     }
@@ -41,7 +41,7 @@ class Router
      *
      * @return array
      */
-    public function getRoutes()
+    public function getRoutes(): array
     {
         return $this->routes;
     }
@@ -52,7 +52,7 @@ class Router
      * @param  string  $basePath  Base path of the project
      * @return void
      */
-    public function setBasePath($basePath)
+    public function setBasePath(string $basePath): void
     {
         $this->basePath = $basePath;
     }
@@ -60,12 +60,22 @@ class Router
     /**
      * Check the routes list according to request method and URL, and execute the action while match
      *
-     * @param  string  $method  HTTP request method
-     * @param  string  $url     Route URL
+     * @param  string|null  $method  HTTP request method; get request method from server information automatically if it is set to `null`
+     * @param  string|null  $url     Route URL
      * @return boolean
      */
-    public function match($method, $url)
+    public function match(mixed $method = null, mixed $url = null): bool
     {
+        if (is_null($method))
+        {
+            $method = $_SERVER['REQUEST_METHOD'];
+        }
+
+        if (is_null($url))
+        {
+            $url = rtrim(preg_replace(['/\?.*/', '/#.*/'], '', $_SERVER['REQUEST_URI']), '/');
+        }
+
         $basePath = str_replace('/', '\/', $this->basePath);
         $pureUrl = trim($this->basePath, '/') == trim($url, '/') ? '/' : preg_replace("/^\/{$basePath}/", '/', $url);
 
@@ -106,7 +116,7 @@ class Router
      * @param  string  $rule  Route containing parameters
      * @return string|false
      */
-    private function _regex($rule)
+    private function _regex(string $rule): mixed
     {
         $match = preg_match_all('/\{([^\{\}\/]+)\}/', $rule, $matches);
 
