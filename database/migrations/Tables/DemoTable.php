@@ -88,7 +88,7 @@ class DemoTable extends Migration
             "COMMENT ON COLUMN public.\"{$this->_tableName}\".\"Flag\"      IS '旗標'",
 
             "COMMENT ON COLUMN public.\"{$this->_tableName}\".\"Available\" IS '可用性'",
-            
+
             "COMMENT ON COLUMN public.\"{$this->_tableName}\".\"Editable\"  IS '可變性'",
 
             "COMMENT ON COLUMN public.\"{$this->_tableName}\".\"CreatedAt\" IS '建立時間'",
