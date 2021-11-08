@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-11-08
+* Adjust type declarations of functions and parameters in some library classes to the manner of PHP 8.
+
 ### 2021-11-07
 * Introduce HTTP request/response handling libraries.
 * Enhance type declarations of all functions and classes.
