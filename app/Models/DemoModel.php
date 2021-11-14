@@ -18,7 +18,7 @@ class DemoModel extends Model
 
     /**
      * Get the instance of this class.
-     * 
+     *
      * @return self
      */
     public static function getInstance(): self

@@ -31,7 +31,7 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 * Change the behaviour while a PDOException is met in DB migration (return `false` -> throw new Exception with code 35).
 
 ### 2021-08-26
-* Add `--verbose` option to tool `canta` to enable to display the raw message of the original command execution. 
+* Add `--verbose` option to tool `canta` to enable to display the raw message of the original command execution.
 
 ### 2021-08-23
 * Introduction of the tool of JavaScript codes minimizing and obfuscating (base on npm packages `webpack`, `webpack-cli` and `terser-webpack-plugin`).
