@@ -5,8 +5,11 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-11-14
+* Add constant `IS_DEV` in `configs/env.php`
+
 ### 2021-11-12
-* Add constant `TimeZoneSuffix` in `Framework/helpers`.
+* Add constant `TimeZoneSuffix` in `libraries/Framework/helpers`.
 
 ### 2021-11-08
 * Adjust type declarations of functions and parameters in some library classes to the manner of PHP 8.
@@ -17,7 +20,7 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 * DBAPI changes:
   1. Enhance supporting of query parameters in array.
   2. Add supporting of the types of query parameters.
-* Add function `SumWord` in `Framework/helpers`.
+* Add function `SumWord` in `libraries/Framework/helpers`.
 
 ### 2021-09-19
 * Change the order in code of the constructor of some classes.
