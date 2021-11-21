@@ -58,7 +58,7 @@ class DemoController
     }
 
     /**
-     * Return message to the demo command line script under the "`bin`" directory.
+     * Return message to the demo command line script under the "`cli`" directory.
      *
      * @return string
      */

@@ -1,7 +1,7 @@
 <?php
 
 chdir(__DIR__);
-require_once '../bootstrap/bin.php';
+require_once '../bootstrap/cli.php';
 
 /*
 |--------------------------------------------------------------------------

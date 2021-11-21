@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-11-21
+* Change the name of folder `bin` to `cli`.
+
 ### 2021-11-14
 * Add constant `IS_DEV` in `configs/env.php`
 
