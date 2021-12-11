@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2021-12-11
+* Add methods to DBAPI: CRUD, related SQL generator and system identifier converter.
+
 ### 2021-11-21
 * Change the name of folder `bin` to `cli`.
 
