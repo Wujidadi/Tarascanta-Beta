@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2022-02-16
+* Amend `DBAPI`.
+
 ### 2021-12-11
 * Add methods to DBAPI: CRUD, related SQL generator and system identifier converter.
 
