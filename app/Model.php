@@ -5,7 +5,7 @@ namespace App;
 use Libraries\DBAPI;
 
 /**
- * Parent class of model.
+ * Parent class of models.
  */
 abstract class Model
 {

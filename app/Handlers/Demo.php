@@ -2,10 +2,12 @@
 
 namespace App\Handlers;
 
+use App\Handler;
+
 /**
  * Demo handler.
  */
-class Demo
+class Demo extends Handler
 {
     /**
      * Instance of this class.
@@ -13,13 +15,6 @@ class Demo
      * @var self|null
      */
     protected static $_uniqueInstance = null;
-
-    /**
-     * Constructor.
-     *
-     * @return void
-     */
-    protected function __construct() {}
 
     /**
      * Get the instance of this class.
@@ -30,6 +25,16 @@ class Demo
     {
         if (self::$_uniqueInstance == null) self::$_uniqueInstance = new self();
         return self::$_uniqueInstance;
+    }
+
+    /**
+     * Constructor.
+     *
+     * @return void
+     */
+    protected function __construct()
+    {
+        $this->_className = basename(__FILE__, '.php');
     }
 
     /**

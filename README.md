@@ -5,6 +5,9 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2022-04-15
+* Add the parent classes `Handler` and `Controller`; codes of related extending relations are added.
+
 ### 2022-02-16
 * Amend `DBAPI`.
 

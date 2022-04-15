@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Controller;
 use App\Handlers\Demo;
-use Libraries\Logger;
 
 /**
  * Demo controller.
  */
-class DemoController
+class DemoController extends Controller
 {
     /**
      * Instance of this class.
@@ -33,7 +33,10 @@ class DemoController
      *
      * @return void
      */
-    protected function __construct() {}
+    protected function __construct()
+    {
+        $this->_className = basename(__FILE__, '.php');
+    }
 
     /**
      * Main demo method.

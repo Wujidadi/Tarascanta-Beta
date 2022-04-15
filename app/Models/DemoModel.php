@@ -35,6 +35,7 @@ class DemoModel extends Model
     protected function __construct()
     {
         parent::__construct('DEFAULT');
+        $this->_className = basename(__FILE__, '.php');
     }
 
     /**
