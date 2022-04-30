@@ -5,6 +5,11 @@ Beta version of [Tarascanta](https://github.com/Wujidadi/Tarascanta).
 
 ## Development Logs
 
+### 2022-05-01
+* Add the library, migration codes and model of SQLite.
+* Modify codes related to the file-requiring levels of CLI and Tools bootstrap.
+* Reorganize codes in some classes, mainly in PHP Docs and comments.
+
 ### 2022-04-15
 * Add the parent classes `Handler` and `Controller`; codes of related extending relations are added.
 
